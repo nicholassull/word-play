@@ -1,30 +1,12 @@
-// Business logic:
-
-function add(number1, number2) {
-  return number1 + number2;
-}
-
-function subtract(number1, number2) {
-  return number1 - number2;
-}
-
-function multiply(number1, number2) {
-  return number1 * number2;
-}
-
-function divide(number1, number2) {
-  return number1 / number2;
-}
-
-
-// Everything below this line is user interface logic:
-
 $(document).ready(function() {
-  $("form#add").submit(function(event) {
+  $("#user-form").submit(function(event) {
     event.preventDefault();
-    const number1 = parseInt($("#add1").val());
-    const number2 = parseInt($("#add2").val());
-    const result = add(number1, number2);
-    $("#output").text(result);
+    const words = $("#sentence").val().split(" ");
+    const newWords = words.filter(word => word.length > 3);
+    const reversed = newWords.reverse();
+    $("#heading").append(reversed.join(" ")); 
   });
 });
+// const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+// ?const result = words.filter(word => word.length > 6);
+
